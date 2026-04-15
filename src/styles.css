@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap');
+
 :root {
   color-scheme: light;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'DM Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
   background: #f8fafc;
   color: #111827;
@@ -63,9 +65,16 @@ body {
 }
 
 .nav-brand {
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #0f172a;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px;
 }
 
 .nav-links {
@@ -106,6 +115,57 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+.project-card {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.project-card h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.project-eyebrow {
+  margin: 6px 0 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.project-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.project-summary {
+  margin: 0 0 16px;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.project-details {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 10px;
 }
 
 .skill-list {
@@ -198,18 +258,30 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 16px;
-  color: #475569;
-  letter-spacing: 0.16em;
+  margin: 0 0 12px;
+  color: #64748b;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.68rem;
+  font-weight: 700;
 }
 
 .hero-card h1 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 1.05;
+  font-family: 'Space Grotesk', 'DM Sans', Inter, system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 1.02;
   color: #0f172a;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', 'DM Sans', Inter, system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .hero-description {
@@ -241,10 +313,100 @@ body {
   gap: 10px;
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  gap: 28px;
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.canvas-stage {
+  height: 480px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.88));
+  box-shadow: 0 35px 90px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.canvas-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-card-inner {
+  width: min(92%, 360px);
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.32);
+  color: #f8fafc;
+  text-align: center;
+}
+
+.canvas-card-inner h2 {
+  margin: 0.5rem 0 0.9rem;
+  font-size: 1.8rem;
+}
+
+.canvas-card-inner p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.canvas-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.canvas-meta span {
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.14);
+  color: #e2e8f0;
+  font-size: 0.86rem;
+}
+
+.skill-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.95);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.24);
+}
+
 .grid-card {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+}
+
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-stage {
+    height: 360px;
+  }
 }
 
 .summary-card,
