@@ -2,6 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function ArchitectureModel(props) {
+  const assetBase = import.meta.env.BASE_URL;
+
   return (
     <Modal
       {...props}
@@ -17,7 +19,7 @@ export default function ArchitectureModel(props) {
       <Modal.Body>
         <div className="architecture-image-wrapper">
           <img
-            src={`/theCVNayan/${props.imageToLoad}`}
+            src={`${assetBase}${props.imageToLoad}`}
             alt={props.imageToLoad}
             className="architecture-image"
           />

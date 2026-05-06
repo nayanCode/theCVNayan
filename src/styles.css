@@ -18,6 +18,7 @@ body {
   background: radial-gradient(circle at top, rgba(186, 230, 253, 0.42), transparent 24%),
     radial-gradient(circle at 80% 15%, rgba(252, 211, 77, 0.22), transparent 18%),
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  overflow-x: hidden;
 }
 
 #root {
@@ -95,6 +96,17 @@ body {
 .nav-brand {
   display: flex;
   align-items: center;
+}
+
+.nav-logo-placeholder {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .nav-logo {
@@ -218,6 +230,7 @@ body {
   padding-left: 1.25rem;
   display: grid;
   gap: 10px;
+  line-height: 1.65;
 }
 
 /* Experience section layout with diagram */
@@ -230,6 +243,11 @@ body {
 
 .experience-text {
   min-width: 0;
+}
+
+.experience-text ul {
+  padding-left: 1.2rem;
+  line-height: 1.7;
 }
 
 .experience-media {
@@ -375,10 +393,11 @@ body {
 .role {
   text-transform: none;
   letter-spacing: normal;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #475569;
-  margin: 0 0 8px;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 800;
+  color: #1d4ed8;
+  margin: 0 0 4px;
+  line-height: 1.25;
 }
 
 .hero-copy h1 {
@@ -445,6 +464,38 @@ h4 {
 .hero-copy {
   display: grid;
   gap: 18px;
+}
+
+.profile-photo-wrap {
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 22px 80px rgba(15, 23, 42, 0.1);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-photo-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #1d4ed8;
+  font-family: 'Space Grotesk', 'DM Sans', Inter, system-ui, sans-serif;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.95), rgba(254, 243, 199, 0.95));
 }
 
 .canvas-stage {
@@ -530,6 +581,11 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .profile-photo-wrap {
+    justify-self: center;
+    width: min(100%, 320px);
+  }
+
   .canvas-stage {
     height: 360px;
   }
@@ -604,7 +660,110 @@ h4 {
 
 @media (max-width: 620px) {
   .page-shell {
+    padding: 12px;
+  }
+
+  .cv-container {
+    gap: 14px;
+    padding-bottom: 28px;
+  }
+
+  .site-nav {
+    border-radius: 24px;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .nav-brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links,
+  .nav-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .site-nav a,
+  .btn {
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.65rem 0.7rem;
+    text-align: center;
+  }
+
+  .hero-grid {
+    gap: 18px;
+  }
+
+  .hero-copy {
+    gap: 12px;
+  }
+
+  .role {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.15rem, 14vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .hero-description {
+    margin-top: 4px;
+    line-height: 1.65;
+  }
+
+  .hero-meta,
+  .skill-list,
+  .social-links {
+    gap: 8px;
+  }
+
+  .hero-meta span,
+  .skill-list span,
+  .social-links a {
+    padding: 0.65rem 0.78rem;
+    font-size: 0.84rem;
+  }
+
+  .profile-photo-wrap {
+    width: min(78vw, 240px);
+    border-radius: 22px;
+    order: -1;
+  }
+
+  .section-card,
+  .project-card {
+    border-radius: 20px;
     padding: 18px;
+  }
+
+  .project-card-header {
+    display: grid;
+    gap: 10px;
+  }
+
+  .project-pill {
+    width: fit-content;
+  }
+
+  .project-media {
+    gap: 10px;
+  }
+
+  .project-media img,
+  .experience-diagram {
+    border-radius: 8px;
+  }
+
+  .project-details,
+  .experience-text ul {
+    padding-left: 1rem;
   }
 
   .hero-card {
@@ -614,7 +773,36 @@ h4 {
   .summary-card,
   .skill-card,
   .detail-card {
-    padding: 22px;
+    padding: 18px;
+  }
+
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .modal-body {
+    padding: 10px;
+  }
+
+  .architecture-image {
+    width: 100%;
+    max-height: 72vh;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-links,
+  .nav-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+
+  .section-card,
+  .project-card {
+    padding: 16px;
   }
 }
 

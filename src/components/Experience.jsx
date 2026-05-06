@@ -7,6 +7,7 @@ export default function Experience() {
   const [imgError, setImgError] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
   const [imageNameToDisplay, setImageNameToDisplay] = React.useState("");
+  const assetBase = import.meta.env.BASE_URL;
 
   const [imageName, setimageName] = React.useState("");
   
@@ -36,7 +37,7 @@ export default function Experience() {
         <div className="experience-media">
           {!imgError ? (
             <img
-              src="/theCVNayan/diagram.png"
+              src={`${assetBase}diagram.png`}
               alt="System architecture diagram"
               className="experience-diagram"
               onError={() => setImgError(true)}
@@ -44,7 +45,7 @@ export default function Experience() {
             />
           ) : (
             <div className="image-fallback">
-              <p>Diagram not loaded. <a href="/theCVNayan/diagram.png" target="_blank" rel="noreferrer">Open image</a></p>
+              <p>Diagram not loaded. <a href={`${assetBase}diagram.png`} target="_blank" rel="noreferrer">Open image</a></p>
             </div>
           )}
           {/* <p className="caption">UI - TMF - UPP Architecture</p> */}

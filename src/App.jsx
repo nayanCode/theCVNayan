@@ -5,8 +5,6 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Use public/profile.jpg for the profile image
-// ...existing code...
 
 const sections = [
   {
@@ -59,12 +57,11 @@ const socials = [
   { label: 'Mail', href: 'mailto:nayanshingare93@gmail.com' },
 ];
 
-// ...existing code...
-
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [copied, setCopied] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const assetBase = import.meta.env.BASE_URL;
 
   useEffect(() => {
     try {
@@ -103,7 +100,7 @@ function App() {
             <a href="#contact">Contact</a>
           </div>
           <div className="nav-actions">
-            <a className="btn" href="/resume.pdf" download>
+            <a className="btn" href="/theCVNayan/resume.pdf" download>
               Download CV
             </a>
             <button className="btn theme-toggle" onClick={toggleTheme} aria-pressed={theme === 'dark'} title="Toggle theme">
@@ -123,7 +120,19 @@ function App() {
               <span>Mumbai, Maharashtra</span>
               <span>Java · Spring Boot . Security . React</span>
             </div>
-          </div> 
+          </div>
+          <div className="profile-photo-wrap" aria-label="Nayan Shingare profile photo">
+            {imgError ? (
+              <span className="profile-photo-fallback">NS</span>
+            ) : (
+              <img
+                className="profile-photo"
+                src={`${assetBase}photo_pic.jpeg`}
+                alt="Nayan Shingare"
+                onError={() => setImgError(true)}
+              />
+            )}
+          </div>
         </section>
 
         <About />

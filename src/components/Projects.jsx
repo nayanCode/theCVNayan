@@ -5,6 +5,7 @@ export default function Projects() {
     const [modalShow, setModalShow] = React.useState(false);
     const [imageName, setimageName] = React.useState("");
      const [imageNameToDisplay, setImageNameToDisplay] = React.useState("");
+    const assetBase = import.meta.env.BASE_URL;
 
     const onClickImage =(imageName)=>{
       setimageName(imageName);
@@ -27,8 +28,8 @@ export default function Projects() {
           Built a resilient authentication experience that protects sessions, enforces role-based access, and keeps the frontend and backend in sync with secure session state.
         </p>
         <div className="project-media">
-          <img src="/theCVNayan/JWT_security_flow.png" alt="JWT flow diagram" onClick={()=>onClickImage("JWT_security_flow.png")}/>
-          <img src="/theCVNayan/JWT_security_flow_1.png" alt="JWT sequence" onClick={()=>onClickImage("JWT_security_flow_1.png")}/>
+          <img src={`${assetBase}JWT_security_flow.png`} alt="JWT flow diagram" onClick={()=>onClickImage("JWT_security_flow.png")}/>
+          <img src={`${assetBase}JWT_security_flow_1.png`} alt="JWT sequence" onClick={()=>onClickImage("JWT_security_flow_1.png")}/>
         </div>
         <ul className="project-details">
           <li>Implemented JWT authentication with HttpOnly cookies and CSRF protection for safe, seamless user sessions.</li>
